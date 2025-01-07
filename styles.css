@@ -53,6 +53,8 @@ body * {
 }
 
 .displayCard {
+    display: flex;
+    flex-direction: column;
     text-align: left;
     padding-top: 10px;
     color: black;
