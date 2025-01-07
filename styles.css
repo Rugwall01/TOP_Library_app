@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+
+}
+
+body, html {
+    height: auto;
+    width: auto;
+}
+
+body * {
+    border: 1px solid black;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr 8fr .5fr;
+    grid-template-areas: 
+    "header header"
+    "sideNav main"
+    "footer footer";
+
+}
+
+.header {
+    grid-area: header;
+}
+
+.sideNav {  
+    grid-area: sideNav;
+}
+
+.main {
+    grid-area: main;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: calc(5vw + .5em);
+
+
+}
+
+.displayCard {
+    text-align: left;
+    padding-top: 10px;
+}
+
+.footer {
+    grid-area: footer;
+}

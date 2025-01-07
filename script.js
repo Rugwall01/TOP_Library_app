@@ -1,6 +1,6 @@
 const smallLibrary = [];
 
-const diplayCard = document.querySelector(".displayCard");
+const diplayCard = document.querySelector("#displayCard");
 
 function Book(name, author, nPages, hasRead) {
     this.name = name,
