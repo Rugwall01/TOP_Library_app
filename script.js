@@ -17,6 +17,8 @@ function addToLibrary(...books) {
 function displayItems() {
     smallLibrary.forEach((book, index) => {
         const content = document.createElement('div');
+        content.classList.add("dispCont");
+        content.gridArea = "cont";
         content.textContent = `${index + 1}. ${book.name}, ${book.author}, ${book.nPages}, ${book.hasRead}.\n`;
         diplayCard.append(content);
     })
@@ -29,9 +31,11 @@ const book3 = new Book('Catch 24', 'Joseph Heller', '624 Pages', 'Have read: Yes
 const book4 = new Book('Catch 25', 'Joseph Heller', '624 Pages', 'Have read: Yes');
 const book5 = new Book('Catch 26', 'Joseph Heller', '624 Pages', 'Have read: Yes');
 const book6 = new Book('Catch 27', 'Joseph Heller', '624 Pages', 'Have read: Yes');
+const book7 = new Book('Catch 28', 'Joseph Heller', '624 Pages', 'Have read: Yes');
+const book8 = new Book('Catch 29', 'Joseph Heller', '624 Pages', 'Have read: Yes');
 
 
-addToLibrary(book1, book2, book3, book4, book5, book6);
+addToLibrary(book1, book2, book3, book4, book5, book6, book7, book8);
 
 displayItems();
 
