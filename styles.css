@@ -48,21 +48,28 @@ body * {
     justify-content: flex-start;
     align-items: flex-start;
     padding: calc(5vw + .5em);
+    border: 1px solid black;
 
 
 }
 
 .displayCard {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     text-align: left;
     padding-top: 10px;
     color: black;
     height: 100%;
     width: 100%;
+    white-space: pre-line;
 
 }
 
 .footer {
     grid-area: footer;
+}
+
+.content {
+    color: black;
+    font-size: large;
 }

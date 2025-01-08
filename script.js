@@ -10,12 +10,16 @@ function Book(name, author, nPages, hasRead) {
 
 };
 
-function addToLibrary(...arguments) {
-    smallLibrary.push(arguments);2
+function addToLibrary(...books) {
+    books.forEach((book) => smallLibrary.push(book));
 };
 
 function displayItems() {
-smallLibrary.forEach((book) => diplayCard.append(`${book.name}, ${book.author}, ${book.nPages}, ${book.hasRead}`));
+    smallLibrary.forEach((book, index) => {
+        const content = document.createElement('div');
+        content.textContent = `${index + 1}. ${book.name}, ${book.author}, ${book.nPages}, ${book.hasRead}.\n`;
+        diplayCard.append(content);
+    })
 };
 
 
