@@ -2,6 +2,7 @@ const smallLibrary = [];
 const generatedBookList = [];
 
 const diplayCard = document.querySelector("#displayCard");
+// const displayCardCont = document.querySelectorAll('.dispCont');
 
 function Book(name, author, nPages, hasRead) {
     this.name = name,
@@ -19,11 +20,16 @@ function displayItems() {
     smallLibrary.forEach((book, index) => {
         const content = document.createElement('div');
         const text = document.createElement('p');
+        const bookSpine = document.createElement('div');
+        bookSpine.classList.add("spine");
         content.classList.add("dispCont");
         text.classList.add("cardText");
+        bookSpine.gridArea = "spine";
+        // text.gridArea = "cardText";
         content.gridArea = "cont";
         text.textContent = `${index + 1}. ${book.name}, ${book.author}, ${book.nPages}, ${book.hasRead}.`;
         content.append(text);
+        content.append(bookSpine);
         diplayCard.append(content);
     });
 };
