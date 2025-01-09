@@ -18,12 +18,16 @@ function addToLibrary(...books) {
 function displayItems() {
     smallLibrary.forEach((book, index) => {
         const content = document.createElement('div');
+        const text = document.createElement('p');
         content.classList.add("dispCont");
+        text.classList.add("cardText");
         content.gridArea = "cont";
-        content.textContent = `${index + 1}. ${book.name}, ${book.author}, ${book.nPages}, ${book.hasRead}.`;
+        text.textContent = `${index + 1}. ${book.name}, ${book.author}, ${book.nPages}, ${book.hasRead}.`;
+        content.append(text);
         diplayCard.append(content);
     });
 };
+
 
 
 function initBookList() {
@@ -37,4 +41,6 @@ function initBookList() {
 initBookList();
 
 displayItems();
+
+
 
