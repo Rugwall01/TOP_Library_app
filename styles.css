@@ -43,6 +43,8 @@ body * {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+    padding-bottom: 33%;
 
 };
 
@@ -52,12 +54,13 @@ body * {
 
 .sideNav p {
     color: black;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .sideNav button {
     width: 125px;
     height: 50px;
+    margin-bottom: 75px;
 }
 .main {
     grid-area: main;
