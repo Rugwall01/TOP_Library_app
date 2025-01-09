@@ -44,7 +44,8 @@ body * {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: 33%;
+    padding-bottom: 55%;
+    background-color: rgba(133, 78, 14, 0.384);
 
 };
 
@@ -55,13 +56,21 @@ body * {
 .sideNav p {
     color: black;
     font-size: 1.5rem;
+    margin-top: -25px;
 }
 
 .sideNav button {
     width: 125px;
     height: 50px;
+    margin-top: -25px;
     margin-bottom: 75px;
+    border-radius: 10px;
 }
+
+#instruct {
+    border-radius: 10px;
+}
+
 .main {
     grid-area: main;
     height: 100%;
@@ -130,8 +139,8 @@ body * {
     "cont";
     column-gap: 25px;
     overflow: auto;
-
 }
+
 /* 
 #displayCard>div .dispCont {
     grid-area: cont;
