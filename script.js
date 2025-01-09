@@ -33,9 +33,13 @@ const book5 = new Book('Catch 26', 'Joseph Heller', '624 Pages', 'Have read: Yes
 const book6 = new Book('Catch 27', 'Joseph Heller', '624 Pages', 'Have read: Yes');
 const book7 = new Book('Catch 28', 'Joseph Heller', '624 Pages', 'Have read: Yes');
 const book8 = new Book('Catch 29', 'Joseph Heller', '624 Pages', 'Have read: Yes');
+const book9 = new Book('Catch 30', 'Joseph Heller', '624 Pages', 'Have read: Yes');
+const book10 = new Book('Catch 31', 'Joseph Heller', '624 Pages', 'Have read: Yes');
+const book11 = new Book('Catch 32', 'Joseph Heller', '624 Pages', 'Have read: Yes');
+const book12 = new Book('Catch 33', 'Joseph Heller', '624 Pages', 'Have read: Yes');
 
 
-addToLibrary(book1, book2, book3, book4, book5, book6, book7, book8);
+addToLibrary(book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12);
 
 displayItems();
 
