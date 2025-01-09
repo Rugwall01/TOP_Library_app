@@ -79,7 +79,7 @@ body * {
     /* max-height: 400%; */
     /* white-space: pre-line; */
     /* grid-auto-flow: column; */
-    grid-template-columns: repeat(4, var(--card-columns));
+    grid-template-columns: repeat(6, var(--card-columns));
     grid-template-rows: repeat(auto-fill, calc(var(--card-columns) * 1.475));
     grid-auto-columns: var(--card-columns);
     grid-auto-rows: calc(var(--card-columns) * 1.475);
