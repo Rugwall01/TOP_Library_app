@@ -40,8 +40,25 @@ body * {
 
 .sideNav {  
     grid-area: sideNav;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+};
+
+.sideNav h1 {
+    color: black;   
 }
 
+.sideNav p {
+    color: black;
+    font-size: 2rem;
+}
+
+.sideNav button {
+    width: 125px;
+    height: 50px;
+}
 .main {
     grid-area: main;
     height: 100%;
