@@ -46,23 +46,27 @@ body * {
     align-items: center;
     padding-bottom: 55%;
     background-color: rgba(133, 78, 14, 0.384);
+    /* background-color: rgba(146, 64, 14, .384); */
 
 };
 
 .sideNav h1 {
-    color: black;   
+    color: black; 
+    /* margin-bottom: -35px;   */
 }
 
 .sideNav p {
     color: black;
     font-size: 1.5rem;
     margin-top: -25px;
+    padding-left: 6%;
+    padding-right: 6%;
 }
 
 .sideNav button {
     width: 125px;
     height: 50px;
-    margin-top: -25px;
+    margin-top: -45px;
     margin-bottom: 75px;
     border-radius: 10px;
 }
@@ -80,6 +84,7 @@ body * {
     align-items: center;
     overflow: auto;  
     border: 1px solid red;
+    background-color: rgba(161, 98, 7, .1);
 }
 
 .display {
@@ -130,7 +135,7 @@ body * {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     color: black;
-    font-size: large;
+    font-size: 1.1rem;
     text-align: center;
     align-items: end;
     justify-items: center;
@@ -139,6 +144,11 @@ body * {
     "cont";
     column-gap: 25px;
     overflow: auto;
+    background-image: url("assets/book_damascene1.png");
+    background-repeat: no-repeat;
+    background-position: relative;
+    background-size: contain;
+    padding: 2%;
 }
 
 /* 
