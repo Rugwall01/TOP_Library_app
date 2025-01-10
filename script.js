@@ -21,18 +21,14 @@ function displayItems() {
         const content = document.createElement('div');
         const text = document.createElement('p');
         const bookSpine = document.createElement('div');
-        const corner = document.createElement('div');
         bookSpine.classList.add("spine");
         content.classList.add("dispCont");
-        corner.classList.add("corner");
         text.classList.add("cardText");
         bookSpine.gridArea = "spine";
-        corner.gridArea = "corner";
         content.gridArea = "cont";
         text.textContent = `${index + 1}. ${book.name}, ${book.author}, ${book.nPages}, ${book.hasRead}.`;
         content.append(text);
         content.append(bookSpine);
-        content.append(corner);
         diplayCard.append(content);
     });
 };
