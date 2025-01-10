@@ -123,6 +123,7 @@ body * {
     overflow: auto;
     border: 2px solid magenta;
     /* position: relative; */
+    /* z-index: 1; */
 }
 
 .footer {
@@ -135,7 +136,7 @@ body * {
     height: calc(var(--card-columns) * 1.475);
     /* border: 3px solid black; */
     display: grid;
-    grid-template-columns: .28fr 1fr;
+    grid-template-columns: .28fr 1fr .01fr;
     grid-template-rows: 1fr;
     color: white;
     font-size: 1.15rem;
@@ -143,11 +144,11 @@ body * {
     align-items: end;
     justify-items: center;
     border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 5px;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     grid-template-areas: 
-    "spine cont";
+    "spine cont corner";
     column-gap: 25px;
     overflow: auto;
     background-image: url("assets/book_damascene1_darkened2.png");
@@ -155,7 +156,7 @@ body * {
     background-position: center;
     background-size: 205%;
     padding: 0;
-    padding-right: 2%;
+    /* padding-right: 2%; */
     -webkit-text-stroke-color: black;
     -webkit-text-stroke-width: .8px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -164,6 +165,8 @@ body * {
     position: relative;
     /* z-index: 1; */
     gap: 0;
+    overflow: visible;
+    /* transform: translateY(-10%); */
 }
 
 
@@ -192,6 +195,7 @@ body * {
     font-weight: lighter;
     z-index: 2;
     text-shadow: 5px 5px 5px rgba(0,0,0,1);
+    margin-right: 2px;
 
 }
 
@@ -207,3 +211,49 @@ body * {
     border: 200px solid green;
     
 }  */
+
+#displayCard > div::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 99.9%;
+    height: 3%; 
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8),
+        rgba(255, 255, 255, 1) 2px,
+
+        transparent 2px
+    );
+    border-top: 2.5px solid black;
+    border-bottom: 2px solid black; 
+    border-left: 2px solid black;
+
+    z-index: 0; 
+    transform: translateY(98%);
+    margin: 0;
+    margin-left: -1.5px;
+    /* border-top-right-radius: -10px; */
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 6px;
+    /* background-color: white; */
+}
+
+/* #displayCard > div::after::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    height: 100%;
+    width: 50%;
+    transform: translateY(98%);
+    z-index: 10;
+
+
+
+} */
+
