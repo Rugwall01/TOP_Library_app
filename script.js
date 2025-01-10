@@ -1,5 +1,6 @@
 const smallLibrary = [];
 const generatedBookList = [];
+// const bookInput = document.querySelector()
 
 const diplayCard = document.querySelector("#displayCard");
 // const displayCardCont = document.querySelectorAll('.dispCont');
@@ -42,6 +43,10 @@ function initBookList() {
     };
 };
 
+
+// function addBook() {
+
+// }
 
 initBookList();
 
