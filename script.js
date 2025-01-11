@@ -40,7 +40,17 @@ function displayItems() {
         text.classList.add("cardText");
         bookSpine.gridArea = "spine";
         content.gridArea = "cont";
-        text.textContent = `${index + 1}. ${book.name}, ${book.author}, ${book.nPages}, ${book.hasRead}.`;
+        text.textContent = '';
+        const parts = `${index + 1}. ${book.name}, ${book.author}, ${book.nPages}, ${book.hasRead}.`.split(',');
+
+        parts.forEach((part, i) => {
+            text.append(part.trim());
+            if(i < parts.length -1) {
+                text.append(',');
+                text.append(document.createElement('br'));
+            }
+        });
+
         content.append(text);
         content.append(bookSpine);
         diplayCard.append(content);

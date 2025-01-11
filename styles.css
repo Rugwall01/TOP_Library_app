@@ -37,6 +37,8 @@ body, html {
 .header {
     grid-area: header;
     background-color: rgba(69, 26, 3, .9);
+    background-image: linear-gradient(to bottom right, rgba(69, 26, 3, .2), rgba(69, 26, 3, .2), rgba(69, 26, 3, .2), rgba(121, 83, 62, 0.2), rgba(69, 26, 3, .2), rgba(69, 26, 3, .2), rgba(69, 26, 3, .2));
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, .6);
 }
 
 .sideNav {  
@@ -48,6 +50,7 @@ body, html {
     padding-bottom: 55%;
     background-color: rgba(133, 78, 14, 0.4);
     /* background-color: rgba(146, 64, 14, .384); */
+    box-shadow: 5px 0px 8px rgba(0, 0, 0, .6);
 
 };
 
@@ -84,7 +87,7 @@ body, html {
     justify-content: center;
     align-items: center;
     overflow: auto;  
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: rgba(161, 98, 7, .15);
     /* background-color: wheat; */
 }
@@ -96,9 +99,9 @@ body, html {
     justify-content: flex-start;
     align-items: flex-start;
     padding: calc(1vw + .5em);
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* overflow: visible; */
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
     /* overflow: auto; */
 
 
@@ -117,14 +120,14 @@ body, html {
     grid-auto-rows: calc(var(--card-columns) * 1.475);
     gap: 25px;
     overflow: auto;
-    border: 2px solid magenta;
+    /* border: 2px solid magenta; */
     /* position: relative; */
     /* z-index: 1; */
 }
 
 .footer {
     grid-area: footer;
-    border: 2px solid magenta;
+    /* border: 2px solid magenta; */
     overflow: auto;
 }
 
