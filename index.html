@@ -32,31 +32,31 @@
             </div>
         </div>
         <div id="popupContainer">
-              <div id="popupOverlay" class="overlayContainer">
-                  <div class="popupBox">
-                      <h2 style="color: goldenrod;">ADD BOOK!</h2>
-                      <div class="formContainer">
-                          <label class="formLabel" for="title">Title:</label>
-                          <input class="formInput" type="text" placeholder="Title" id="title" name="title" required>
+            <div id="popupOverlay" class="overlayContainer">
+                <div class="popupBox">
+                    <h2 style="color: goldenrod;">ADD BOOK!</h2>
+                    <form class="formContainer">
+                        <label class="formLabel" for="title">Title:</label>
+                        <input class="formInput" type="text" placeholder="Title" id="title" name="title" required>
           
-                          <label class="formLabel" for="author">Author:</label>
-                          <input class="formInput" type="text" placeholder="Author" id="author" name="author" required>
+                        <label class="formLabel" for="author">Author:</label>
+                        <input class="formInput" type="text" placeholder="Author" id="author" name="author" required>
           
-                          <label for="pages" class="formLabel">Number of pages:</label>
-                          <input class="formInput" type="number" placeholder="Number of pages" id="pages" name="pages" required>
+                        <label for="pages" class="formLabel">Number of pages:</label>
+                        <input class="formInput" type="number" placeholder="Number of pages" id="pages" name="pages" required>
           
-                          <label for="hasReadLabel2" class="formLabel" id="hasReadLabel1">Have you read this book?:
-                              <label for="hasRead" class="formLabel" id="hasReadLabel2" >Yes<input type="checkbox" class="form-input" id="hasRead" name="hasRead"></label>
-                              <label for="hasReadNo" class="formLabel" id="hasReadNoLabel">No<input type="checkbox" class="form-input" id="hasReadNo" name="hasReadNo"></label>
-                          </label>
+                        <label for="hasReadLabel2" class="formLabel" id="hasReadLabel1">Have you read this book?:
+                            <label for="hasRead" class="formLabel" id="hasReadLabel2" >Yes<input type="radio" class="form-input" id="hasRead" name="hasRead" required></label>
+                            <label for="hasReadNo" class="formLabel" id="hasReadNoLabel">No<input type="radio" class="form-input" id="hasReadNo" name="hasRead" required></label>
+                        </label>
           
           
-                          <button class="submitBtn" type="button">Submit</button>
-                        </div>
+                        <button class="submitBtn" type="submit">Submit</button>
+                    </form>
           
                       <button class="closePopupBtn" onclick="togglePopup()">Close</button>
-                  </div>
-              </div>
+                </div>
+            </div>
 
         </div>
         <div class="footer">

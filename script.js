@@ -6,6 +6,7 @@ const LIBRARY = [];
 const diplayCard = document.querySelector("#displayCard");
 // const displayCardCont = document.querySelectorAll('.dispCont');
 
+const form = document.querySelector("form");
 const titleInp = document.querySelector("#title");
 const authorInp = document.querySelector("#author");
 const numPagesInp = document.querySelector("#pages");
@@ -67,39 +68,83 @@ function togglePopup() {
 
 
 
+// submitBtn.addEventListener("click", (e) => {
+    
+//     if(!form.validity.valid){
+//         e.preventDefault();
+//     }
+//     // if(form.validity.valid){
+
+//     let hasReadStatus;
+
+//     if(hasReadInp.checked && !hasReadNoInp.checked){
+//         hasReadStatus = 'Have read?: Yes';
+//     }else if(hasReadNoInp.checked && !hasReadInp.checked){
+//         hasReadStatus = 'Have read?: No';
+//     }else if(!hasReadInp.checked && !hasReadNoInp.checked){
+//         e.preventDefault();
+//         return;
+//     };
+
+//     const userEntry = new Book(titleInp.value, authorInp.value, numPagesInp.value, hasReadStatus);
+
+//     addToLibrary(userEntry);
+
+//     titleInp.value = '';
+//     authorInp.value = '';
+//     numPagesInp.value = '';
+//     hasReadInp.checked = false;
+//     hasReadNoInp.checked = false;
+
+//     // };
+
+//     displayItems();
+//     togglePopup();
+
+// });
+
+
 submitBtn.addEventListener("click", (e) => {
-    // e.preventDefault();
+    e.preventDefault();
 
-    let hasReadStatus;
+    // if (!titleInp.value || !authorInp.value || !numPagesInp.value) {
+    //     ("All fields are required!");
+    //     return;
+    // }
 
-    if(hasReadInp.checked && !hasReadNoInp.checked){
-        hasReadStatus = 'Have read?: Yes';
-    }else if(hasReadNoInp.checked && !hasReadInp.checked){
-        hasReadStatus = 'Have read?: No';
-    }else if(!hasReadInp.checked && !hasReadNoInp.checked){
-        alert("Please select a checkbox.");
-        return;
-    }else{
-        alert("Please only selct one checkbox.");
+    const inputs = [
+        { field: titleInp, message: "Title is required." },
+        { field: authorInp, message: "Author is required." },
+        { field: numPagesInp, message: "Number of pages is required." }
+    ];
+
+    inputs.forEach((input) => input.field.setCustomValidity(""));
+
+    for (const input of inputs) {
+        if (!input.field.value.trim()) {
+            input.field.setCustomValidity(input.message);
+            input.field.reportValidity();
+            return; 
+        }
+    }
+
+    if (!hasReadInp.checked && !hasReadNoInp.checked) {
+        hasReadInp.setCustomValidity("Please select a read status.");
+        hasReadInp.reportValidity();
         return;
     }
+
+    let hasReadStatus = hasReadInp.checked ? 'Have read?: Yes' : 'Have read?: No';
 
     const userEntry = new Book(titleInp.value, authorInp.value, numPagesInp.value, hasReadStatus);
 
     addToLibrary(userEntry);
 
+    form.reset();
 
-    titleInp.value = '';
-    authorInp.value = '';
-    numPagesInp.value = '';
-    hasReadInp.checked = false;
-    hasReadNoInp.checked = false;
-    
     displayItems();
-    
-    togglePopup();
-    
 
+    togglePopup();
 });
 
 
