@@ -243,7 +243,7 @@ body, html {
 }
 
 
-
+/* 
 .popupContainer {
     margin: 0;
     padding: 0;
@@ -254,7 +254,7 @@ body, html {
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     z-index: 10;
-}
+} */
 
 .openPopupBtn {
     /* padding: 12px 24px; */
@@ -269,7 +269,8 @@ body, html {
 }
 
 .openPopupBtn:hover {
-    background-color: #4caf50;
+    /* background-color: #4caf50; */
+    background-color: green;
 }
 
 .overlayContainer {
@@ -332,7 +333,7 @@ body, html {
 }
 
 .submitBtn {
-    background-color: green;
+    background-color: rgb(1, 59, 1);
     color: #fff;
 }
 
@@ -344,7 +345,8 @@ body, html {
 
 .submitBtn:hover,
 .closePopupBtn:hover {
-    background-color: #4caf50;
+    /* background-color: #4caf50; */
+    background-color: green;
 }
 
 @keyframes fadeInUp {
