@@ -45,12 +45,28 @@ function displayItems() {
 
         parts.forEach((part, i) => {
             text.append(part.trim());
-            if(i < parts.length -1) {
+            if(i < parts.length - 1) {
                 text.append(',');
                 text.append(document.createElement('br'));
             }
         });
+        
+        const xhRequest = new XMLHttpRequest();
+        xhRequest.open("GET", "assets/bookmark.svg", true);
+        xhRequest.responseType = "document";
 
+        xhRequest.onload = function() {
+            if(this.status === 200) {
+                const bookMark = this.responseXML.documentElement;
+                bookMark.classList.add("bookMark");
+                bookSpine.append(bookMark);
+
+            }
+        };
+
+        xhRequest.send();
+    
+        
         content.append(text);
         content.append(bookSpine);
         diplayCard.append(content);
