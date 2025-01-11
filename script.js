@@ -143,10 +143,15 @@ submitBtn.addEventListener("click", (e) => {
     form.reset();
 
     displayItems();
-
     togglePopup();
 });
 
+const inputs = [titleInp, authorInp, numPagesInp, hasReadInp];
+inputs.forEach((input) => {
+    input.addEventListener("input", () => {
+        input.setCustomValidity("");
+    });
+});
 
 // function addBook() {
 
