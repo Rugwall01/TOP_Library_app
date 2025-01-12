@@ -1,3 +1,5 @@
+// Thanks to geeksforgeeks for their tutorial on popups and hidden elements
+
 const smallLibrary = [];
 const generatedBookList = [];
 const LIBRARY = [];
