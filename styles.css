@@ -45,7 +45,7 @@ body, html {
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr 8fr .5fr;
     grid-template-areas: 
-    "header header"
+    "sideNav header"
     "sideNav main"
     "footer footer";
     overflow: auto;
@@ -455,3 +455,36 @@ body, html {
     transform: translateY(-100%);
     border: 1px solid blue;
 } */
+
+
+
+#displayCard>div:hover {
+    transform: scale(1.1);
+}
+
+/* #displayCard>div:active {
+    transform: scale(1);
+} */
+
+
+.main #displayCard>div.dispCont>p:hover {
+    cursor: pointer;
+}
+
+.main #displayCard>div.dispCont>p:active {
+    transform: scale(.9);
+}
+
+.trashCanSVG {
+    position: absolute;
+    color: whitesmoke;
+    fill: whitesmoke;
+    opacity: .85;
+    bottom: 5%;
+    transform: translateX(315%);
+    /* background-color: white; */
+}
+
+.trashCanSVG:hover {
+    transform: rotate(360deg);
+}

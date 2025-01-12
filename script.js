@@ -13,7 +13,7 @@ const numPagesInp = document.querySelector("#pages");
 const hasReadInp = document.querySelector("#hasRead");
 const hasReadNoInp = document.querySelector("#hasReadNo");
 const submitBtn = document.querySelector(".submitBtn"); 
-
+// const genCardText = document.querySelector(".cardText");
 
 
 
@@ -42,6 +42,7 @@ function displayItems() {
         span.classList.add("textSpan");
         bookSpine.gridArea = "spine";
         content.gridArea = "cont";
+        text.setAttribute('data-index', index);
         text.textContent = '';
         const parts = `${index + 1}. ${book.name}, By: ${book.author}, ${book.nPages} pages, ${book.hasRead}.`.split(',');
 
@@ -55,67 +56,24 @@ function displayItems() {
 
         text.append(span);
         
-        // const xhRequest = new XMLHttpRequest();
-        // xhRequest.open("GET", "assets/bookmark.svg", true);
-        // xhRequest.responseType = "document";
-
-        // xhRequest.onload = function() {
-        //     if(this.status === 200) {
-        //         const bookMark = this.responseXML.documentElement;
-        //         bookMark.classList.add("bookMark");
-        //         bookSpine.append(bookMark);
-
-        //     }
-        // };
-
-        // xhRequest.send();
-
-    //     fetch("assets/bookmark.svg")
-    // .then((response) => {
-    //     if (!response.ok) throw new Error("Failed to load SVG");
-    //     return response.text();
-    // })
-    // .then((svgText) => {
-    //     const parser = new DOMParser();
-    //     const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
-    //     const bookMark = svgDoc.documentElement;
-    //     bookMark.classList.add("bookMark");
-    //     bookSpine.appendChild(bookMark);
-    // })
-    // .catch((error) => console.error("Error loading SVG:", error));
-    
         
-//         const bookMarkSVG = `<svg
-//     xmlns="http://www.w3.org/2000/svg"
-//     width="60"
-//     height="180"
-//     viewBox="0 0 60 180"
-//     fill="whitesmoke"
-//     stroke="whitesmoke"
-//     stroke-width="2">
-//   <rect x="0" y="0" width="60" height="180" fill="whitesmoke" stroke="whitesmoke" />
-//  <polygon points="0,180 30,160 60,180" fill="transparent" stroke="blue" /> 
 
-  
-// </svg>`;
-// {/* <polygon points="0,160 30,180 60,160" fill="blue" /> */}
+    const bookMarkSVG = `<svg     xmlns="http://www.w3.org/2000/svg"
+            width="60"
+        height="180"
+        viewBox="0 0 60 180">
+        
+    <defs>
+        <mask id="cutout-mask">
+        <rect x="0" y="0" width="60" height="180" fill="white" />
+        <polygon points="0,180 30,160 60,180" fill="black" stroke="blue" />
+            
+        </mask>
+    </defs>
 
-const bookMarkSVG = `<svg     xmlns="http://www.w3.org/2000/svg"
-    width="60"
-    height="180"
-    viewBox="0 0 60 180">
-  
-  <defs>
-    <mask id="cutout-mask">
-      <rect x="0" y="0" width="60" height="180" fill="white" />
-      <polygon points="0,180 30,160 60,180" fill="black" stroke="blue" />
-      
-    </mask>
-  </defs>
-
-  
-  <rect x="0" y="0" width="60" height="180" fill="whitesmoke" mask="url(#cutout-mask)" />
-</svg>`
+        
+    <rect x="0" y="0" width="60" height="180" fill="whitesmoke" mask="url(#cutout-mask)" />
+    </svg>`
 
 
 
@@ -123,12 +81,25 @@ const bookMarkSVG = `<svg     xmlns="http://www.w3.org/2000/svg"
         // `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark">
         //                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
         //                  </svg>`;
+
+
+        const trashCanSVG = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                                <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+                            </svg>`;
+
+        
         
         const bookMark = document.createElement('div');
         bookMark.innerHTML = bookMarkSVG;
         bookMark.classList.add("bookMark");
         bookMark.firstChild.classList.add("bookMarkSVG");
         bookSpine.append(bookMark.firstChild);
+
+        const trashCan = document.createElement('div');
+        trashCan.innerHTML = trashCanSVG;
+        trashCan.classList.add("trashCan");
+        trashCan.firstChild.classList.add("trashCanSVG");
+        content.append(trashCan.firstChild);
  
         content.append(text);
         content.append(bookSpine);
@@ -153,44 +124,6 @@ function togglePopup() {
     overlay.classList.toggle('show');
 };
 
-
-
-
-
-// submitBtn.addEventListener("click", (e) => {
-    
-//     if(!form.validity.valid){
-//         e.preventDefault();
-//     }
-//     // if(form.validity.valid){
-
-//     let hasReadStatus;
-
-//     if(hasReadInp.checked && !hasReadNoInp.checked){
-//         hasReadStatus = 'Have read?: Yes';
-//     }else if(hasReadNoInp.checked && !hasReadInp.checked){
-//         hasReadStatus = 'Have read?: No';
-//     }else if(!hasReadInp.checked && !hasReadNoInp.checked){
-//         e.preventDefault();
-//         return;
-//     };
-
-//     const userEntry = new Book(titleInp.value, authorInp.value, numPagesInp.value, hasReadStatus);
-
-//     addToLibrary(userEntry);
-
-//     titleInp.value = '';
-//     authorInp.value = '';
-//     numPagesInp.value = '';
-//     hasReadInp.checked = false;
-//     hasReadNoInp.checked = false;
-
-//     // };
-
-//     displayItems();
-//     togglePopup();
-
-// });
 
 
 submitBtn.addEventListener("click", (e) => {
@@ -244,9 +177,21 @@ inputs.forEach((input) => {
     });
 });
 
-// function addBook() {
 
-// }
+diplayCard.addEventListener("click", (e) => {
+    const genCardText = e.target.closest('p');
+    if (!genCardText) return;
+
+    const index = genCardText.getAttribute('data-index');
+    if (index !== null) {
+    smallLibrary[index].hasRead = smallLibrary[index].hasRead === 'Have read?: Yes' ? 'Have read?: No' : 'Have read?: Yes';
+    
+    displayItems();
+    }
+});
+
+
+
 
 initBookList();
 
