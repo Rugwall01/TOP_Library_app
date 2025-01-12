@@ -1,10 +1,8 @@
 const smallLibrary = [];
 const generatedBookList = [];
 const LIBRARY = [];
-// const bookInput = document.querySelector()
 
 const diplayCard = document.querySelector("#displayCard");
-// const displayCardCont = document.querySelectorAll('.dispCont');
 
 const form = document.querySelector("form");
 const titleInp = document.querySelector("#title");
@@ -13,7 +11,6 @@ const numPagesInp = document.querySelector("#pages");
 const hasReadInp = document.querySelector("#hasRead");
 const hasReadNoInp = document.querySelector("#hasReadNo");
 const submitBtn = document.querySelector(".submitBtn"); 
-// const genCardText = document.querySelector(".cardText");
 
 
 
@@ -36,6 +33,7 @@ function displayItems() {
         const text = document.createElement('p');
         const bookSpine = document.createElement('div');
         const span = document.createElement('span');
+
         bookSpine.classList.add("spine");
         content.classList.add("dispCont");
         text.classList.add("cardText");
@@ -44,6 +42,7 @@ function displayItems() {
         content.gridArea = "cont";
         text.setAttribute('data-index', index);
         text.textContent = '';
+
         const parts = `${index + 1}. ${book.name}, By: ${book.author}, ${book.nPages} pages, ${book.hasRead}.`.split(',');
 
         parts.forEach((part, i) => {
@@ -84,8 +83,7 @@ function displayItems() {
                                 <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
                             </svg>`;
 
-            
-            
+
         const bookMark = document.createElement('div');
         bookMark.innerHTML = bookMarkSVG;
         bookMark.classList.add("bookMark");
@@ -129,10 +127,6 @@ function togglePopup() {
 submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    // if (!titleInp.value || !authorInp.value || !numPagesInp.value) {
-    //     ("All fields are required!");
-    //     return;
-    // }
 
     const inputs = [
         { field: titleInp, message: "Title is required." },
@@ -160,7 +154,6 @@ submitBtn.addEventListener("click", (e) => {
 
     const userEntry = new Book(titleInp.value, authorInp.value, numPagesInp.value, hasReadStatus);
 
-    // addToLibrary(userEntry);
 
     smallLibrary.unshift(userEntry);
 
@@ -191,23 +184,8 @@ diplayCard.addEventListener("click", (e) => {
 });
 
 
-// const content1 = document.querySelector(".dispCont");
-
-// content1.addEventListener("click", (e) => {
-//     const trash = e.target.closest('svg');
-//     if (!trash) return;
-
-//     const index = trash.getAttribute('data-index');
-//     if (index !== null) {
-//         smallLibrary.splice(index, 1);
-//         displayItems();
-//     }
-
-// })
-
 document.body.addEventListener("click", (e) => {
-    // const content1 = e.target.closest(".dispCont"); 
-    // if (!content1) return; 
+    
 
     const trash = e.target.closest('svg'); 
     if (!trash) return;
