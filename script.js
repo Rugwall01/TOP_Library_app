@@ -35,21 +35,25 @@ function displayItems() {
         const content = document.createElement('div');
         const text = document.createElement('p');
         const bookSpine = document.createElement('div');
+        const span = document.createElement('span');
         bookSpine.classList.add("spine");
         content.classList.add("dispCont");
         text.classList.add("cardText");
+        span.classList.add("textSpan");
         bookSpine.gridArea = "spine";
         content.gridArea = "cont";
         text.textContent = '';
-        const parts = `${index + 1}. ${book.name}, ${book.author}, ${book.nPages}, ${book.hasRead}.`.split(',');
+        const parts = `${index + 1}. ${book.name}, By: ${book.author}, ${book.nPages} pages, ${book.hasRead}.`.split(',');
 
         parts.forEach((part, i) => {
-            text.append(part.trim());
+            span.append(part.trim());
             if(i < parts.length - 1) {
-                text.append(',');
-                text.append(document.createElement('br'));
+                span.append(',');
+                span.append(document.createElement('br'));
             }
         });
+
+        text.append(span);
         
         // const xhRequest = new XMLHttpRequest();
         // xhRequest.open("GET", "assets/bookmark.svg", true);
@@ -94,7 +98,7 @@ function displayItems() {
 
   
 // </svg>`;
-{/* <polygon points="0,160 30,180 60,160" fill="blue" /> */}
+// {/* <polygon points="0,160 30,180 60,160" fill="blue" /> */}
 
 const bookMarkSVG = `<svg     xmlns="http://www.w3.org/2000/svg"
     width="60"
@@ -139,7 +143,7 @@ const bookMarkSVG = `<svg     xmlns="http://www.w3.org/2000/svg"
 
 function initBookList() {
     for(i=0; i<=17; i++) {
-        generatedBookList[i + 1] = new Book(`Catch ${22 + i}`, 'Joseph Heller', '624 Pages', 'Have read?: Yes');
+        generatedBookList[i + 1] = new Book(`Catch ${22 + i}`, 'Joseph Heller', '624', 'Have read?: Yes');
         addToLibrary(generatedBookList[i + 1]);
     };
 };
@@ -223,7 +227,9 @@ submitBtn.addEventListener("click", (e) => {
 
     const userEntry = new Book(titleInp.value, authorInp.value, numPagesInp.value, hasReadStatus);
 
-    addToLibrary(userEntry);
+    // addToLibrary(userEntry);
+
+    smallLibrary.unshift(userEntry);
 
     form.reset();
 
@@ -242,7 +248,9 @@ inputs.forEach((input) => {
 
 // }
 
-// initBookList();
+initBookList();
+
+displayItems();
 
 
 

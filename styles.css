@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'cinzelregular';
+    src: url('assets/cinzel-variablefont_wght-webfont.woff2') format('woff2'),
+         url('assets/cinzel-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 * {
     box-sizing: border-box;
 
@@ -102,7 +112,7 @@ body, html {
     /* border: 1px solid black; */
     /* overflow: visible; */
     /* border: 2px solid orange; */
-    /* overflow: auto; */
+    overflow: auto;
 
 
 }
@@ -119,7 +129,7 @@ body, html {
     grid-auto-columns: var(--card-columns);
     grid-auto-rows: calc(var(--card-columns) * 1.475);
     gap: 25px;
-    overflow: auto;
+    overflow: visible;
     /* border: 2px solid magenta; */
     /* position: relative; */
     /* z-index: 1; */
@@ -140,7 +150,7 @@ body, html {
     display: grid;
     grid-template-columns: .28fr 1fr;
     grid-template-rows: 1fr;
-    color: white;
+    color: gold;
     font-size: 1.35rem;
     text-align: center;
     align-items: end;
@@ -153,15 +163,17 @@ body, html {
     "spine cont";
     column-gap: 25px;
     overflow: auto;
-    background-image: url("assets/book_damascene1_darkened2.png");
+    /* background-image: url("assets/book_damascene1_darkened4.png"); */
+    /* background: rgb(44, 30, 12); */
+    /* background: rgb(27, 19, 8); */
+    background: rgb(22, 16, 6);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 205%;
     padding: 0;
     /* padding-right: 2%; */
-    -webkit-text-stroke-color: black;
-    -webkit-text-stroke-width: .8px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+    font-family: 'cinzelregular', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     /* opacity: initial; */
     /* position: relative; */
     position: relative;
@@ -197,22 +209,43 @@ body, html {
     /* box-sizing: content-box; */
     z-index: 1;
     overflow: visible;
-    position: relative;
+    /* position: relative; */
 
+}
+
+.main #displayCard>div.dispCont>p {
+    /* position: absolute; */
+    /* border: 2px solid pink; */
+    overflow: visible;
+    z-index: 2;
+    /* opacity: 1; */
+    justify-self: center;
+    /* align-self: center; */
+    padding: 0;
+    /* left: 15px; */
+    width: 102%;
 }
 
 
 
-.main #displayCard>div.dispCont>p {
-    /* border: 2px solid pink; */
-    /* position: absolute; */
-    opacity: 1 !important;
-    letter-spacing: .1rem;
-    font-weight: lighter;
-    z-index: 2;
-    text-shadow: 5px 5px 5px rgba(0,0,0,1);
-    margin-right: 2px;
-    align-self: center;
+
+
+.main #displayCard>div span {
+    /* color: gold; */
+    /* border: 1px solid goldenrod; */
+    background: linear-gradient( gold, gold, gold, gold, gold, rgb(151, 115, 22), goldenrod, rgb(146, 111, 21), rgb(148, 112, 23), rgb(151, 115, 22));
+    /* background: linear-gradient(#00AC97 50%, #E4CDA4 50%); */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* text-shadow: 15px 10px 10px rgba(0,0,0,.8); */
+    /* letter-spacing: .1rem; */
+    overflow: visible;
+    /* font-weight: bolder; */
+    font-size: 1rem;
+
+    /* -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: .08px; */
 
 }
 
@@ -229,7 +262,7 @@ body, html {
     background: repeating-linear-gradient(
         to bottom,
         rgba(0, 0, 0, 1) -.1px,
-        rgba(255, 255, 255, 1) .5px,
+        rgba(255, 255, 255, 1) .4px,
 
         transparent 2px
     );
@@ -385,13 +418,15 @@ body, html {
     position: absolute;
     overflow: visible;
     /* background-color: white; */
-    color: whitesmoke;
-    fill: whitesmoke;
-    width: 60px;
-    height: 180px;
-    bottom: 62%;
-    opacity: 1;
+    /* color: whitesmoke; */
+    /* fill: midnightblue; */
+    width: 40px;
+    height: 120px;
+    bottom: 59.5%;
+    /* left: 100%; */
+    opacity: .85;
     z-index: 12;
+    /* border-radius: 10px; */
     /* justify-self: start;
     align-self: center; */
 }
