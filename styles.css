@@ -170,6 +170,7 @@ body, html {
     overflow: visible;
     /* transform: translateY(-10%); */
     /* box-shadow: 3px 0px 8px rgba(0, 0, 0, 1); */
+
 }
 
 
@@ -195,6 +196,8 @@ body, html {
     /* position: absolute; */
     /* box-sizing: content-box; */
     z-index: 1;
+    overflow: visible;
+    position: relative;
 
 }
 
@@ -376,14 +379,33 @@ body, html {
 
 
 
-/* .bookMark {
+.bookMarkSVG {
+    padding: 0;
     position: absolute;
-    color: white;
-    background-color: white;
-    width: 50px;
-    height: 85px;
+    overflow: visible;
+    /* background-color: white; */
+    color: whitesmoke;
+    fill: whitesmoke;
+    width: 60px;
+    height: 180px;
+    bottom: 62%;
     opacity: 1;
     z-index: 12;
-    justify-self: start;
-    align-self: center;
+    /* justify-self: start;
+    align-self: center; */
+}
+
+/* .bookMarkSVG::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    background-color: whitesmoke
+    opacity: 1;
+    z-index: 13;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    border: 1px solid blue;
 } */

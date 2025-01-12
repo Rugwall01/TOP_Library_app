@@ -81,9 +81,43 @@ function displayItems() {
     // .catch((error) => console.error("Error loading SVG:", error));
     
         
-        const bookMarkSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark">
-                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                         </svg>`;
+//         const bookMarkSVG = `<svg
+//     xmlns="http://www.w3.org/2000/svg"
+//     width="60"
+//     height="180"
+//     viewBox="0 0 60 180"
+//     fill="whitesmoke"
+//     stroke="whitesmoke"
+//     stroke-width="2">
+//   <rect x="0" y="0" width="60" height="180" fill="whitesmoke" stroke="whitesmoke" />
+//  <polygon points="0,180 30,160 60,180" fill="transparent" stroke="blue" /> 
+
+  
+// </svg>`;
+{/* <polygon points="0,160 30,180 60,160" fill="blue" /> */}
+
+const bookMarkSVG = `<svg     xmlns="http://www.w3.org/2000/svg"
+    width="60"
+    height="180"
+    viewBox="0 0 60 180">
+  
+  <defs>
+    <mask id="cutout-mask">
+      <rect x="0" y="0" width="60" height="180" fill="white" />
+      <polygon points="0,180 30,160 60,180" fill="black" stroke="blue" />
+      
+    </mask>
+  </defs>
+
+  
+  <rect x="0" y="0" width="60" height="180" fill="whitesmoke" mask="url(#cutout-mask)" />
+</svg>`
+
+
+        
+        // `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark">
+        //                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+        //                  </svg>`;
         
         const bookMark = document.createElement('div');
         bookMark.innerHTML = bookMarkSVG;
