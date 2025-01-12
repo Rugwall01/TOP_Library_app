@@ -66,21 +66,31 @@ function displayItems() {
 
         // xhRequest.send();
 
-        fetch("assets/bookmark.svg")
-    .then((response) => {
-        if (!response.ok) throw new Error("Failed to load SVG");
-        return response.text();
-    })
-    .then((svgText) => {
-        const parser = new DOMParser();
-        const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
-        const bookMark = svgDoc.documentElement;
-        bookMark.classList.add("bookMark");
-        bookSpine.appendChild(bookMark);
-    })
-    .catch((error) => console.error("Error loading SVG:", error));
+    //     fetch("assets/bookmark.svg")
+    // .then((response) => {
+    //     if (!response.ok) throw new Error("Failed to load SVG");
+    //     return response.text();
+    // })
+    // .then((svgText) => {
+    //     const parser = new DOMParser();
+    //     const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
+    //     const bookMark = svgDoc.documentElement;
+    //     bookMark.classList.add("bookMark");
+    //     bookSpine.appendChild(bookMark);
+    // })
+    // .catch((error) => console.error("Error loading SVG:", error));
     
         
+        const bookMarkSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                         </svg>`;
+        
+        const bookMark = document.createElement('div');
+        bookMark.innerHTML = bookMarkSVG;
+        bookMark.classList.add("bookMark");
+        bookMark.firstChild.classList.add("bookMarkSVG");
+        bookSpine.append(bookMark.firstChild);
+ 
         content.append(text);
         content.append(bookSpine);
         diplayCard.append(content);
