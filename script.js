@@ -58,37 +58,34 @@ function displayItems() {
         
         
 
-    const bookMarkSVG = `<svg     xmlns="http://www.w3.org/2000/svg"
-            width="60"
-        height="180"
-        viewBox="0 0 60 180">
-        
-    <defs>
-        <mask id="cutout-mask">
-        <rect x="0" y="0" width="60" height="180" fill="white" />
-        <polygon points="0,180 30,160 60,180" fill="black" stroke="blue" />
+        const bookMarkSVG = `<svg     xmlns="http://www.w3.org/2000/svg"
+                width="60"
+            height="180"
+            viewBox="0 0 60 180">
             
-        </mask>
-    </defs>
+        <defs>
+            <mask id="cutout-mask">
+            <rect x="0" y="0" width="60" height="180" fill="white" />
+            <polygon points="0,180 30,160 60,180" fill="black" stroke="blue" />
+                
+            </mask>
+        </defs>
+
+            
+        <rect x="0" y="0" width="60" height="180" fill="whitesmoke" mask="url(#cutout-mask)" />
+        </svg>`
+
+
 
         
-    <rect x="0" y="0" width="60" height="180" fill="whitesmoke" mask="url(#cutout-mask)" />
-    </svg>`
-
-
-
-        
-        // `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark">
-        //                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-        //                  </svg>`;
 
 
         const trashCanSVG = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
                                 <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
                             </svg>`;
 
-        
-        
+            
+            
         const bookMark = document.createElement('div');
         bookMark.innerHTML = bookMarkSVG;
         bookMark.classList.add("bookMark");
@@ -99,13 +96,16 @@ function displayItems() {
         trashCan.innerHTML = trashCanSVG;
         trashCan.classList.add("trashCan");
         trashCan.firstChild.classList.add("trashCanSVG");
+        trashCan.firstChild.setAttribute('data-index', index);
         content.append(trashCan.firstChild);
- 
+    
         content.append(text);
         content.append(bookSpine);
         diplayCard.append(content);
 
         LIBRARY.push(book);
+        
+
     });
 
 };
@@ -187,6 +187,35 @@ diplayCard.addEventListener("click", (e) => {
     smallLibrary[index].hasRead = smallLibrary[index].hasRead === 'Have read?: Yes' ? 'Have read?: No' : 'Have read?: Yes';
     
     displayItems();
+    }
+});
+
+
+// const content1 = document.querySelector(".dispCont");
+
+// content1.addEventListener("click", (e) => {
+//     const trash = e.target.closest('svg');
+//     if (!trash) return;
+
+//     const index = trash.getAttribute('data-index');
+//     if (index !== null) {
+//         smallLibrary.splice(index, 1);
+//         displayItems();
+//     }
+
+// })
+
+document.body.addEventListener("click", (e) => {
+    // const content1 = e.target.closest(".dispCont"); 
+    // if (!content1) return; 
+
+    const trash = e.target.closest('svg'); 
+    if (!trash) return;
+
+    const index = trash.getAttribute('data-index'); 
+    if (index !== null) {
+        smallLibrary.splice(index, 1); 
+        displayItems(); 
     }
 });
 
