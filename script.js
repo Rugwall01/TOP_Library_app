@@ -51,20 +51,34 @@ function displayItems() {
             }
         });
         
-        const xhRequest = new XMLHttpRequest();
-        xhRequest.open("GET", "assets/bookmark.svg", true);
-        xhRequest.responseType = "document";
+        // const xhRequest = new XMLHttpRequest();
+        // xhRequest.open("GET", "assets/bookmark.svg", true);
+        // xhRequest.responseType = "document";
 
-        xhRequest.onload = function() {
-            if(this.status === 200) {
-                const bookMark = this.responseXML.documentElement;
-                bookMark.classList.add("bookMark");
-                bookSpine.append(bookMark);
+        // xhRequest.onload = function() {
+        //     if(this.status === 200) {
+        //         const bookMark = this.responseXML.documentElement;
+        //         bookMark.classList.add("bookMark");
+        //         bookSpine.append(bookMark);
 
-            }
-        };
+        //     }
+        // };
 
-        xhRequest.send();
+        // xhRequest.send();
+
+        fetch("assets/bookmark.svg")
+    .then((response) => {
+        if (!response.ok) throw new Error("Failed to load SVG");
+        return response.text();
+    })
+    .then((svgText) => {
+        const parser = new DOMParser();
+        const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
+        const bookMark = svgDoc.documentElement;
+        bookMark.classList.add("bookMark");
+        bookSpine.appendChild(bookMark);
+    })
+    .catch((error) => console.error("Error loading SVG:", error));
     
         
         content.append(text);
