@@ -1,10 +1,18 @@
 @font-face {
+    font-family: 'marcellus_scregular';
+    src: url('assets/marcellussc-regular-webfont.woff2') format('woff2'),
+         url('assets/marcellussc-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
     font-family: 'cinzelregular';
     src: url('assets/cinzel-variablefont_wght-webfont.woff2') format('woff2'),
          url('assets/cinzel-variablefont_wght-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 
@@ -61,6 +69,7 @@ body, html {
     background-color: rgba(133, 78, 14, 0.4);
     /* background-color: rgba(146, 64, 14, .384); */
     box-shadow: 5px 0px 8px rgba(0, 0, 0, .6);
+    font-family: 'marcellus_scregular'
 
 };
 
@@ -215,15 +224,16 @@ body, html {
 
 .main #displayCard>div.dispCont>p {
     /* position: absolute; */
-    /* border: 2px solid pink; */
+     /* border: 3px double goldenrod; */
     overflow: visible;
     z-index: 2;
     /* opacity: 1; */
     justify-self: center;
-    /* align-self: center; */
+    align-self: center;
     padding: 0;
     /* left: 15px; */
     width: 102%;
+    margin-right: 3px;
 }
 
 
