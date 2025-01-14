@@ -31,9 +31,9 @@ function addToLibrary(...books) {
 function displayItems() {
     diplayCard.innerHTML = '';
     smallLibrary.forEach((book, index) => {
+        const bookSpine = document.createElement('div');
         const content = document.createElement('div');
         const text = document.createElement('p');
-        const bookSpine = document.createElement('div');
         const span = document.createElement('span');
 
         bookSpine.classList.add("spine");
@@ -41,7 +41,7 @@ function displayItems() {
         text.classList.add("cardText");
         span.classList.add("textSpan");
         bookSpine.gridArea = "spine";
-        content.gridArea = "cont";
+        // content.gridArea = "cont";
         text.setAttribute('data-index', index);
         text.textContent = '';
 
@@ -59,7 +59,7 @@ function displayItems() {
         
         
 
-        const bookMarkSVG = `<svg     xmlns="http://www.w3.org/2000/svg"
+        const bookMarkSVG = `<svg xmlns="http://www.w3.org/2000/svg"
                 width="60"
             height="180"
             viewBox="0 0 60 180">
@@ -74,11 +74,7 @@ function displayItems() {
 
             
         <rect x="0" y="0" width="60" height="180" fill="whitesmoke" mask="url(#cutout-mask)" />
-        </svg>`
-
-
-
-        
+        </svg>`;
 
 
         const trashCanSVG = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
@@ -143,8 +139,29 @@ submitBtn.addEventListener("click", (e) => {
             input.field.setCustomValidity(input.message);
             input.field.reportValidity();
             return; 
-        }
-    }
+        };
+
+
+        
+
+
+        const inpArray = input.field.value.split('');
+
+
+        const longEntry = inpArray.some((inp) => {
+            return inp.length >= 13 ? true : false;
+        
+        });  
+
+        if (longEntry) {
+            input.field.setCustomValidity("Individual word or whole entry is too long!");
+            input.field.reportValidity();
+            return
+
+        };
+
+    };
+
 
     if (!hasReadInp.checked && !hasReadNoInp.checked) {
         hasReadInp.setCustomValidity("Please select a read status.");
@@ -182,7 +199,7 @@ diplayCard.addEventListener("click", (e) => {
     smallLibrary[index].hasRead = smallLibrary[index].hasRead === 'Have read?: Yes' ? 'Have read?: No' : 'Have read?: Yes';
     
     displayItems();
-    }
+    };
 });
 
 
@@ -196,7 +213,7 @@ document.body.addEventListener("click", (e) => {
     if (index !== null) {
         smallLibrary.splice(index, 1); 
         displayItems(); 
-    }
+    };
 });
 
 
