@@ -1,10 +1,13 @@
 // Thanks to geeksforgeeks for their tutorial on popups and hidden elements
 
-const smallLibrary = [];
-const generatedBookList = [];
-const LIBRARY = [];
 
-const diplayCard = document.querySelector("#displayCard");
+const libraryStacks = {
+    smallLibrary: [],
+    generatedBookList: [],
+    LIBRARY: [], // for storage/history later
+}
+
+const displayCard = document.querySelector("#displayCard");
 
 const form = document.querySelector("form");
 const titleInp = document.querySelector("#title");
@@ -15,22 +18,24 @@ const hasReadNoInp = document.querySelector("#hasReadNo");
 const submitBtn = document.querySelector(".submitBtn"); 
 
 
-
-function Book(name, author, nPages, hasRead) {
-    this.name = name,
-    this.author = author,
-    this.nPages = nPages,
-    this.hasRead = hasRead;
-
+class Book {
+    constructor(name, author, nPages, hasRead) {
+        this.name = name,
+        this.author = author,
+        this.nPages = nPages,
+        this.hasRead = hasRead;
+    }
 };
 
 function addToLibrary(...books) {
-    books.forEach((book) => smallLibrary.push(book));
+    books.forEach((book) => libraryStacks.smallLibrary.push(book));
 };
 
 function displayItems() {
-    diplayCard.innerHTML = '';
-    smallLibrary.forEach((book, index) => {
+    displayCard.innerHTML = '';
+    const fragment = document.createDocumentFragment();
+
+    libraryStacks.smallLibrary.forEach((book, index) => {
         const bookSpine = document.createElement('div');
         const content = document.createElement('div');
         const text = document.createElement('p');
@@ -40,7 +45,7 @@ function displayItems() {
         content.classList.add("dispCont");
         text.classList.add("cardText");
         span.classList.add("textSpan");
-        bookSpine.gridArea = "spine";
+        // bookSpine.style.gridArea = "spine";
         // content.gridArea = "cont";
         text.setAttribute('data-index', index);
         text.textContent = '';
@@ -97,21 +102,23 @@ function displayItems() {
     
         content.append(text);
         content.append(bookSpine);
-        diplayCard.append(content);
+        fragment.append(content);
 
-        LIBRARY.push(book);
+        // libraryStacks.LIBRARY.push(book);
         
 
     });
+    
+    displayCard.append(fragment);
 
 };
 
 
 
 function initBookList() {
-    for(i=0; i<=17; i++) {
-        generatedBookList[i + 1] = new Book(`Catch ${22 + i}`, 'Joseph Heller', '624', 'Have read?: Yes');
-        addToLibrary(generatedBookList[i + 1]);
+    for(let i = 0; i <= 17; i++) {
+        libraryStacks.generatedBookList[i + 1] = new Book(`Catch ${22 + i}`, 'Joseph Heller', '624', 'Have read?: Yes');
+        addToLibrary(libraryStacks.generatedBookList[i + 1]);
     };
 };
 
@@ -174,7 +181,7 @@ submitBtn.addEventListener("click", (e) => {
     const userEntry = new Book(titleInp.value, authorInp.value, numPagesInp.value, hasReadStatus);
 
 
-    smallLibrary.unshift(userEntry);
+    libraryStacks.smallLibrary.unshift(userEntry);
 
     form.reset();
 
@@ -190,13 +197,13 @@ inputs.forEach((input) => {
 });
 
 
-diplayCard.addEventListener("click", (e) => {
+displayCard.addEventListener("click", (e) => {
     const genCardText = e.target.closest('p');
     if (!genCardText) return;
 
     const index = genCardText.getAttribute('data-index');
     if (index !== null) {
-    smallLibrary[index].hasRead = smallLibrary[index].hasRead === 'Have read?: Yes' ? 'Have read?: No' : 'Have read?: Yes';
+    libraryStacks.smallLibrary[index].hasRead = libraryStacks.smallLibrary[index].hasRead === 'Have read?: Yes' ? 'Have read?: No' : 'Have read?: Yes';
     
     displayItems();
     };
@@ -211,17 +218,20 @@ document.body.addEventListener("click", (e) => {
 
     const index = trash.getAttribute('data-index'); 
     if (index !== null) {
-        smallLibrary.splice(index, 1); 
+        libraryStacks.smallLibrary.splice(index, 1); 
         displayItems(); 
     };
 });
 
-
-
-
 initBookList();
 
 displayItems();
+
+
+
+
+
+
 
 
 
